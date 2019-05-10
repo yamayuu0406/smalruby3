@@ -19,9 +19,9 @@ Stage.new("Stage",
 end
 
 Sprite.new("スプライト1",
-           x: 2.4778961420147922,
-           y: 58.644506254374804,
-           direction: -108.46304096718444,
+           x: -41.803006548060864,
+           y: -13.034491307060054,
+           direction: 120,
            costumes: [
              {
                asset_id: "01ae57fd339529445cb890978ef8a054",
@@ -33,32 +33,34 @@ Sprite.new("スプライト1",
              }
            ]) do
   self.when(:flag_clicked) do
-    sleep(1)
-    broadcast("こんにちは")
-    # broadcast_and_wait("こんにちは")
-    # move(10)
-    # bounce_if_on_edge
-    # wait
-    # end
+    loop do
+      if Keyboard.pressed?("space")
+        until Keyboard.pressed?("right arrow")
+          turn_right(15)
+          wait
+        end
+      else
+        1.times do
+          wait until Keyboard.pressed?("left arrow")
+          create_clone("_myself_")
+          turn_left(15)
+          wait
+        end
+      end
+      wait
+    end
   end
 
-  self.when(:greater_than, "LOUDNESS", 10) do
-    move(10)
-  end
-
-  self.when(:click) do
-    go_to("_mouse_")
-  end
-
-  self.when(:backdrop_switches, "背景1") do
-    turn_right(15)
-  end
-
-  self.when(:greater_than, "LOUDNESS", 10) do
-    move(10)
-  end
-
-  self.when(:receive, "こんにちは") do
-    self.x += 10
+  self.when(:start_as_a_clone) do
+    loop do
+      if Keyboard.pressed?("up arrow")
+        delete_this_clone
+      end
+      if Keyboard.pressed?("down arrow")
+        sleep(1)
+        stop("all")
+      end
+      wait
+    end
   end
 end

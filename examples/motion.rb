@@ -35,23 +35,8 @@ Sprite.new("スプライト1",
                rotation_center_y: 55
              }
            ]) do
-  self.when(:key_pressed, "left arrow") do
-    self.x += -1 * $speed
-  end
-
-  self.when(:key_pressed, "right arrow") do
-    self.x += $speed
-  end
-
-  self.when(:key_pressed, "up arrow") do
-    self.y += $speed
-  end
-
-  self.when(:key_pressed, "down arrow") do
-    self.y += -1 * $speed
-  end
-
   self.when(:flag_clicked) do
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     $speed = 10
 =======
@@ -61,5 +46,10 @@ Sprite.new("スプライト1",
 
     end
 >>>>>>> Stashed changes
+=======
+    1_000_000.times do
+      go_to("_mouse_")
+    end
+>>>>>>> master
   end
 end
