@@ -37,6 +37,10 @@ module Smalruby3
         sync_position
       end
 
+      def bounce_if_on_edge= #変更点
+        NotinNotImplemented
+      end
+
       private
 
       def calc_x(val)
@@ -64,7 +68,6 @@ module Smalruby3
         if d > 180
           d -= 360
         end
-        d
       end
     end
   end

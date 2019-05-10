@@ -52,6 +52,14 @@ Sprite.new("スプライト1",
   end
 
   self.when(:flag_clicked) do
+<<<<<<< Updated upstream
     $speed = 10
+=======
+    1_000_000.times do
+      self.x += 10
+      
+
+    end
+>>>>>>> Stashed changes
   end
 end
