@@ -38,7 +38,7 @@ module Smalruby3
       end
 
       def bounce_if_on_edge= #変更点
-        NotinNotImplemented
+        p "NotinNotImplemented"
       end
 
       private
